@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <delete>
+    <fileset dir="/home/shivam/dynamix/spotify/spotify-Core/target" includes="original-spotify-Core-1.0-SNAPSHOT.jar"/>
+  </delete>
+</target>
+</project>

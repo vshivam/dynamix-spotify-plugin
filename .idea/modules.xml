@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spotify.iml" filepath="$PROJECT_DIR$/spotify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spotify-Core/spotify-Core.iml" filepath="$PROJECT_DIR$/spotify-Core/spotify-Core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spotify-Datatypes/spotify-Datatypes.iml" filepath="$PROJECT_DIR$/spotify-Datatypes/spotify-Datatypes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spotify-TestApp/spotify-TestApp.iml" filepath="$PROJECT_DIR$/spotify-TestApp/spotify-TestApp.iml" />
+    </modules>
+  </component>
+</project>
+
