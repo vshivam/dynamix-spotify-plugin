@@ -25,7 +25,6 @@ import org.ambientdynamix.api.contextplugin.ContextListenerInformation;
 import org.ambientdynamix.api.contextplugin.ContextPluginRuntime;
 import org.ambientdynamix.api.contextplugin.ContextPluginSettings;
 import org.ambientdynamix.api.contextplugin.PowerScheme;
-import org.ambientdynamix.api.contextplugin.security.PrivacyRiskLevel;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -63,13 +62,9 @@ public class SpotifyRuntime extends ContextPluginRuntime {
             Log.d(TAG, "New Broadcast Received : " + intent.getAction());
             long timeSentInMs = intent.getLongExtra("timeSent", 0);
 
-            Log.d(TAG, "Testing intent extras >> " + intent.hasExtra(BroadcastTypes.METADATA_CHANGED));
-            Log.d(TAG, "Testing intent extras >> " + intent.hasExtra(BroadcastTypes.PLAYBACK_STATE_CHANGED));
-            Log.d(TAG, "Testing intent extras >> " + intent.hasExtra(BroadcastTypes.QUEUE_CHANGED));
-
             if (intent.getAction().equals(BroadcastTypes.METADATA_CHANGED)) {
                 for (UUID uuid : spotifyListeners) {
-                    sendContextEvent(uuid, new MySpotifyInfo(intent), PrivacyRiskLevel.LOW, VALID_CONTEXT_DURATION);
+                    sendContextEvent(uuid, new MySpotifyInfo(intent),VALID_CONTEXT_DURATION);
                 }
                 Log.d(TAG, intent.getStringExtra("track"));
             } else if (intent.getAction().equals(BroadcastTypes.PLAYBACK_STATE_CHANGED)) {

@@ -7,12 +7,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-
 import org.ambientdynamix.api.application.*;
-import org.ambientdynamix.contextplugins.spotify.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -55,7 +52,7 @@ public class BindDynamixActivity extends Activity {
                 }
             });
             /*
-			* Setup the interactive context acquisition button. Note that this method only works if the
+            * Setup the interactive context acquisition button. Note that this method only works if the
 			* 'org.ambientdynamix.sampleplugin' plug-in is installed.
 		 	*/
             Button btnInvokePlugin = (Button) findViewById(R.id.invokePlugin);
@@ -81,34 +78,34 @@ public class BindDynamixActivity extends Activity {
 
                         contextHandler.contextRequest(pluginInvocation.getPluginId(),
                                 pluginInvocation.getContextRequestType(), pluginInvocation.getConfiguration(), new IContextRequestCallback.Stub() {
-                            @Override
-                            public void onSuccess(ContextResult contextEvent) throws RemoteException {
-                                Log.i(TAG, "A1 - Request id was: " + contextEvent.getResponseId());
-                                contextListener.onContextResult(contextEvent);
-                            }
+                                    @Override
+                                    public void onSuccess(ContextResult contextEvent) throws RemoteException {
+                                        Log.i(TAG, "A1 - Request id was: " + contextEvent.getResponseId());
+                                        contextListener.onContextResult(contextEvent);
+                                    }
 
-                            @Override
-                            public void onFailure(String s, int i) throws RemoteException {
-                                Log.w(TAG, "Call was unsuccessful! Message: " + s + " | Error code: "
-                                        + i);
-                            }
+                                    @Override
+                                    public void onFailure(String s, int i) throws RemoteException {
+                                        Log.w(TAG, "Call was unsuccessful! Message: " + s + " | Error code: "
+                                                + i);
+                                    }
 
-                        });
+                                });
                     } else {
                         contextHandler.contextRequest(pluginInvocation.getPluginId(),
                                 pluginInvocation.getContextRequestType(), new IContextRequestCallback.Stub() {
-                            @Override
-                            public void onSuccess(ContextResult contextEvent) throws RemoteException {
-                                Log.i(TAG, "A1 - Request id was: " + contextEvent.getResponseId());
-                                contextListener.onContextResult(contextEvent);
-                            }
+                                    @Override
+                                    public void onSuccess(ContextResult contextEvent) throws RemoteException {
+                                        Log.i(TAG, "A1 - Request id was: " + contextEvent.getResponseId());
+                                        contextListener.onContextResult(contextEvent);
+                                    }
 
-                            @Override
-                            public void onFailure(String s, int i) throws RemoteException {
-                                Log.w(TAG, "Call was unsuccessful! Message: " + s + " | Error code: "
-                                        + i);
-                            }
-                        });
+                                    @Override
+                                    public void onFailure(String s, int i) throws RemoteException {
+                                        Log.w(TAG, "Call was unsuccessful! Message: " + s + " | Error code: "
+                                                + i);
+                                    }
+                                });
                     }
 
                 }
@@ -176,7 +173,7 @@ public class BindDynamixActivity extends Activity {
 
                             @Override
                             public void onFailure(String message, int errorCode) throws RemoteException {
-                                Log.e(TAG,message);
+                                Log.e(TAG, message);
                             }
                         });//
 
@@ -190,7 +187,7 @@ public class BindDynamixActivity extends Activity {
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-        }else
+        } else
             try {
                 registerForContextTypes();
             } catch (RemoteException e) {
@@ -293,7 +290,7 @@ public class BindDynamixActivity extends Activity {
                                 public void onSuccess() throws RemoteException {
                                     Log.i(TAG, "Uninstalled: " + info.getPluginId());
                                     count[0]++;
-                                    if (count[0]==total) {
+                                    if (count[0] == total) {
                                         Log.i(TAG, "Waiting for uninstall to complete... FINISHED!");
                                         // Set init to false, since we're finished
                                         initializing = false;
@@ -307,7 +304,7 @@ public class BindDynamixActivity extends Activity {
                                 public void onFailure(String message, int errorCode) throws RemoteException {
                                     Log.w(TAG, "Uninstalling: " + info.getPluginId() + " failed, reason: " + message + " moving on as if uninstall succeeded");
                                     count[0]++;
-                                    if (count[0]==total) {
+                                    if (count[0] == total) {
                                         Log.i(TAG, "Waiting for uninstall to complete... FINISHED!");
                                         // Set init to false, since we're finished
                                         initializing = false;
@@ -347,10 +344,11 @@ public class BindDynamixActivity extends Activity {
 		 */
         for (PluginInvoker.PluginInvocation pluginInvocation : pluginInvoker.getPluginInvocations()) {
             String type = pluginInvocation.getContextRequestType();
-            contextHandler.addContextSupport(pluginInvocation.getPluginId(),type, contextListener, new ContextSupportCallback() {
+            Log.d(TAG, "Requesting context support for : " + pluginInvocation.getPluginId() + "--" + pluginInvocation.getContextRequestType());
+            contextHandler.addContextSupport(pluginInvocation.getPluginId(), type, contextListener, new ContextSupportCallback() {
                 @Override
                 public void onSuccess(ContextSupportInfo supportInfo) throws RemoteException {
-                    Log.i(TAG,"support succesfully added");
+                    Log.i(TAG, "support succesfully added");
                 }
 
                 @Override

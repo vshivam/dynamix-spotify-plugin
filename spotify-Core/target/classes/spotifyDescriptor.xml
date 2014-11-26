@@ -15,14 +15,14 @@
 		runtimeFactoryClass="org.ambientdynamix.contextplugins.spotify.PluginFactory">
 		<name>Spotify</name>
         <description>Listen to playback changes in the Spotify Android app</description>
-        <supportedPrivacyRiskLevels>
-            <privacyRiskLevel name="HIGH">Automatically generated reason, please change</privacyRiskLevel>
-        </supportedPrivacyRiskLevels>
 		<supportedContextTypes>
-			<contextType>org.ambientdynamix.contextplugins.spotify.listen</contextType>
+			<contextType id="org.ambientdynamix.contextplugins.spotify.listen" name="Spotify Updates"> Listen to changes in the player state of the Spotify Android Application</contextType>
 		</supportedContextTypes>		
-		<featureDependencies/>			
-		<permissions>
+		<featureDependencies/>
+        <dynamixFeatures>
+            <dynamixFeature name="Scan to Interact" runtimeMethod="scanToInteractFeature">Scans barcodes to enable Dynamix interaction.</dynamixFeature>
+        </dynamixFeatures>
+        <permissions>
 		    <permission>Context.ACTIVITY_SERVICE</permission>
             <permission>Permissions.ACCESS_FULL_CONTEXT</permission>
             <permission>permissions.MANAGE_BROADCAST_RECEIVERS</permission>

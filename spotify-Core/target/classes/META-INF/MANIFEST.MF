@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1415601080564
+Bnd-LastModified: 1416219912988
 Build-Jdk: 1.7.0_65
 Built-By: shivam
 Bundle-ClassPath: .
@@ -11,8 +11,8 @@ Bundle-Vendor: Ambientdynamix
 Bundle-Version: 1.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: org.ambientdynamix.contextplugins.spotify;uses:="org.amb
- ientdynamix.api.contextplugin,org.ambientdynamix.api.application,org.am
- bientdynamix.api.contextplugin.security";version="1.0.0.SNAPSHOT"
+ ientdynamix.api.contextplugin,org.ambientdynamix.api.application";versi
+ on="1.0.0.SNAPSHOT"
 Import-Package: org.ambientdynamix.api.application,org.ambientdynamix.ap
  i.contextplugin,org.ambientdynamix.api.contextplugin.security
 Originally-Created-By: Apache Maven Bundle Plugin
